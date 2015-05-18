@@ -14,9 +14,41 @@
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
 
+
+    <phone:PhoneApplicationPage.Resources>
+        <DataTemplate x:Name="SoundTileDataTemplate">
+            <Grid
+                Background="{StaticResource PhoneAccentBrush}"
+                Margin="0,0,12,12">
+                <Grid
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Top"
+                                    Width="40"
+                                    Height="40"
+                                    Margin="0, 6, 6, 0">
+                    <Ellipse
+                                        Stroke="{StaticResource PhoneForegroundBrush}"
+                                        StrokeThickness="3" />
+                    <Image Source="Assets/AppBar/play.png" />
+                </Grid>
+                <StackPanel VerticalAlignment="Bottom" >
+                    <TextBlock
+                                        Margin="6, 0, 0, 6"
+                                        Text="{Binding Title}" />
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </phone:PhoneApplicationPage.Resources>
+
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
 
+        
+        <MediaElement
+            Name="AudioPlayer"
+            Volume="1"
+            />
+        
         <!-- LOCALIZATION NOTE:
             To localize the displayed strings copy their values to appropriately named
             keys in the app's neutral language resource file (AppResources.resx) then
@@ -36,51 +68,60 @@
             CurrentUICulture of the app at run time.
          -->
 
+
+
         <!--Pivot Control-->
         <phone:Pivot Title="{Binding Path=LocalizedResources.ApplicationTitle, 
                             Source={StaticResource LocalizedStrings}}">
             <!--Pivot item one-->
             <phone:PivotItem Header="{Binding Animals.Title}">
                 <!--Double line list with text wrapping-->
-                <phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding Animals.Items}">
-                    <phone:LongListSelector.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Margin="0,0,0,17">
-                                <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                                <TextBlock Text="{Binding FilePath}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </phone:LongListSelector.ItemTemplate>
+                <phone:LongListSelector
+                    SelectionChanged="LongListSelector_OnSelectionChanged"
+                    LayoutMode="Grid"
+                    GridCellSize="150, 150"
+                    Margin="0,0,-12,0"
+                    ItemsSource="{Binding Animals.Items}"
+                    ItemTemplate="{StaticResource SoundTileDataTemplate}">
                 </phone:LongListSelector>
             </phone:PivotItem>
 
             <!--Pivot item two-->
             <phone:PivotItem Header="{Binding Cartoons.Title}">
                 <!--Double line list no text wrapping-->
-                <phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding Cartoons.Items}">
-                    <phone:LongListSelector.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Margin="0,0,0,17">
-                                    <TextBlock Text="{Binding Title}" TextWrapping="NoWrap" Margin="12,0,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                                    <TextBlock Text="{Binding FilePath}" TextWrapping="NoWrap" Margin="12,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                                </StackPanel>
-                            </DataTemplate>
-                    </phone:LongListSelector.ItemTemplate>
+                <phone:LongListSelector
+                    SelectionChanged="LongListSelector_OnSelectionChanged"
+                    LayoutMode="Grid"
+                    GridCellSize="150, 150"
+                    ItemTemplate="{StaticResource SoundTileDataTemplate}"
+                    Margin="0,0,-12,0"
+                    ItemsSource="{Binding Cartoons.Items}">
                 </phone:LongListSelector>
             </phone:PivotItem>
 
             <!--Pivot item three-->
-            <phone:PivotItem Header="{Binding CustomSounds.Title}">
+            <phone:PivotItem Header="{Binding Taunts.Title}">
                 <!--Double line list no text wrapping-->
-                <phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding CustomSounds.Items}">
-                    <phone:LongListSelector.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Margin="0,0,0,17">
-                                <TextBlock Text="{Binding Title}" TextWrapping="NoWrap" Margin="12,0,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                                <TextBlock Text="{Binding FilePath}" TextWrapping="NoWrap" Margin="12,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </phone:LongListSelector.ItemTemplate>
+                <phone:LongListSelector
+                    SelectionChanged="LongListSelector_OnSelectionChanged"
+                    LayoutMode="Grid"
+                    GridCellSize="150, 150"
+                    ItemTemplate="{StaticResource SoundTileDataTemplate}"
+                    Margin="0,0,-12,0"
+                    ItemsSource="{Binding Taunts.Items}">
+                </phone:LongListSelector>
+            </phone:PivotItem>
+
+            <!--Pivot item four-->
+            <phone:PivotItem Header="{Binding Warnings.Title}">
+                <!--Double line list no text wrapping-->
+                <phone:LongListSelector
+                    SelectionChanged="LongListSelector_OnSelectionChanged"
+                    LayoutMode="Grid"
+                    GridCellSize="150, 150"
+                    ItemTemplate="{StaticResource SoundTileDataTemplate}"
+                    Margin="0,0,-12,0"
+                    ItemsSource="{Binding Warnings.Items}">
                 </phone:LongListSelector>
             </phone:PivotItem>
         </phone:Pivot>

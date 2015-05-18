@@ -104,8 +104,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\ItemViewModel.cs" />
-    <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\SoundData.cs" />
     <Compile Include="ViewModels\SoundGroup.cs" />
     <Compile Include="ViewModels\SoundModel.cs" />
@@ -134,6 +132,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml">
       <SubType>Designer</SubType>
@@ -141,6 +140,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AlignmentGrid.png" />
+    <Content Include="Assets\AppBar\cancel.png" />
+    <Content Include="Assets\AppBar\check.png" />
+    <Content Include="Assets\AppBar\microphone.png" />
+    <Content Include="Assets\AppBar\play.png" />
+    <Content Include="Assets\AppBar\save.png" />
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -158,6 +162,38 @@
     <Content Include="Assets\Audio\Animals\Pig.wav" />
     <Content Include="Assets\Audio\Animals\Rooster.wav" />
     <Content Include="Assets\Audio\Animals\Sheep.wav" />
+    <Content Include="Assets\Audio\Cartoons\Boing.wav" />
+    <Content Include="Assets\Audio\Cartoons\Bronk.wav" />
+    <Content Include="Assets\Audio\Cartoons\Bugle charge.wav" />
+    <Content Include="Assets\Audio\Cartoons\Laser.wav" />
+    <Content Include="Assets\Audio\Cartoons\Out Here.wav" />
+    <Content Include="Assets\Audio\Cartoons\Splat.wav" />
+    <Content Include="Assets\Audio\Taunts\Cackle.wav" />
+    <Content Include="Assets\Audio\Taunts\Clock Ticking.wav" />
+    <Content Include="Assets\Audio\Taunts\Dial up.wav" />
+    <Content Include="Assets\Audio\Taunts\Drum roll.wav" />
+    <Content Include="Assets\Audio\Taunts\Elevator Music.wav" />
+    <Content Include="Assets\Audio\Taunts\Laugh - Evil.wav" />
+    <Content Include="Assets\Audio\Taunts\Laugh.wav" />
+    <Content Include="Assets\Audio\Taunts\Sad Trombone.wav" />
+    <Content Include="Assets\Audio\Taunts\Sarcastic Ooo.wav" />
+    <Content Include="Assets\Audio\Taunts\Sigh.wav" />
+    <Content Include="Assets\Audio\Taunts\Snore.wav" />
+    <Content Include="Assets\Audio\Taunts\Wrong Price.wav" />
+    <Content Include="Assets\Audio\Taunts\Yawn.wav" />
+    <Content Include="Assets\Audio\Warnings\Air horn.wav" />
+    <Content Include="Assets\Audio\Warnings\Air Raid.wav" />
+    <Content Include="Assets\Audio\Warnings\Alarm Clock - Bell.wav" />
+    <Content Include="Assets\Audio\Warnings\Alarm Clock - Electric.wav" />
+    <Content Include="Assets\Audio\Warnings\Backing up.wav" />
+    <Content Include="Assets\Audio\Warnings\Bell - Church.wav" />
+    <Content Include="Assets\Audio\Warnings\Bell - School.wav" />
+    <Content Include="Assets\Audio\Warnings\Fog horn.wav" />
+    <Content Include="Assets\Audio\Warnings\Glass breaking.wav" />
+    <Content Include="Assets\Audio\Warnings\Missle alert.wav" />
+    <Content Include="Assets\Audio\Warnings\Police - UK.wav" />
+    <Content Include="Assets\Audio\Warnings\Police - US.wav" />
+    <Content Include="Assets\Audio\Warnings\Vuvuzela.wav" />
     <Content Include="Assets\BadgeLogo.png" />
     <Content Include="Assets\Logo.png" />
     <Content Include="Assets\SplashScreen.png" />
@@ -180,12 +216,40 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ReadMe.Coding4Fun.Toolkit.txt" />
+    <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Coding4Fun.Toolkit, Version=2.0.8.0, Culture=neutral, PublicKeyToken=c5fd7b72b1a17ce4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Coding4Fun.Toolkit.Controls.2.0.9\lib\windowsphone8\Coding4Fun.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Coding4Fun.Toolkit.Audio, Version=2.0.8.0, Culture=neutral, PublicKeyToken=c5fd7b72b1a17ce4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Coding4Fun.Toolkit.Audio.2.0.8\lib\windowsphone8\Coding4Fun.Toolkit.Audio.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Coding4Fun.Toolkit.Controls, Version=2.0.9.0, Culture=neutral, PublicKeyToken=c5fd7b72b1a17ce4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Coding4Fun.Toolkit.Controls.2.0.9\lib\windowsphone8\Coding4Fun.Toolkit.Controls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Coding4Fun.Toolkit.Net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=c5fd7b72b1a17ce4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Coding4Fun.Toolkit.Net.2.0.8\lib\windowsphone8\Coding4Fun.Toolkit.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Coding4Fun.Toolkit.Storage, Version=2.0.8.0, Culture=neutral, PublicKeyToken=c5fd7b72b1a17ce4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Coding4Fun.Toolkit.Storage.2.0.8\lib\windowsphone8\Coding4Fun.Toolkit.Storage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

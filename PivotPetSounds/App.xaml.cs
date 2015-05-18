@@ -36,8 +36,11 @@ namespace PivotPetSounds
         {
             get
             {
-                if(viewModel == null)
+                if (viewModel == null)
+                {
                     viewModel = new SoundModel();
+                    viewModel.LoadData();
+                }
 
                 return viewModel;
             }

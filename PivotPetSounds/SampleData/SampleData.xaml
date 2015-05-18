@@ -20,14 +20,22 @@
         </vm:SoundGroup>
     </vm:SoundModel.Cartoons>
 
-    <vm:SoundModel.CustomSounds>
-        <vm:SoundGroup Title="CustomSounds">
+    <vm:SoundModel.Taunts>
+        <vm:SoundGroup Title="Taunts">
             <vm:SoundGroup.Items>
-                <vm:SoundData Title="CustomSounds 1" FilePath="CustomSounds.wav" />
-                <vm:SoundData Title="CustomSounds 2" FilePath="CustomSounds.wav" />
-                <vm:SoundData Title="CustomSounds 3" FilePath="CustomSounds.wav" />
+                <vm:SoundData Title="Taunts 1" FilePath="Taunts.wav" />
+                <vm:SoundData Title="Taunts 2" FilePath="Taunts.wav" />
             </vm:SoundGroup.Items>
         </vm:SoundGroup>
-    </vm:SoundModel.CustomSounds>
+    </vm:SoundModel.Taunts>
+
+    <vm:SoundModel.Warnings>
+        <vm:SoundGroup Title="Warnings">
+            <vm:SoundGroup.Items>
+                <vm:SoundData Title="Warnings 1" FilePath="Warnings.wav" />
+                <vm:SoundData Title="Warnings 2" FilePath="Warnings.wav" />
+            </vm:SoundGroup.Items>
+        </vm:SoundGroup>
+    </vm:SoundModel.Warnings>
 
 </vm:SoundModel>
